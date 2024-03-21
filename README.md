@@ -1,1 +1,1 @@
-# capstone-ecom-final
+# ecommerce-shop-starter
