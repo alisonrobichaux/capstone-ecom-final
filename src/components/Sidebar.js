@@ -8,7 +8,6 @@ import { CartContext } from '../contexts/CartContext';
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  console.log(useContext(CartContext));
 
     return ( 
     <div className={`${ isOpen ? 'right-0' : '-right-full' } w-full bg-white fixed top-0
