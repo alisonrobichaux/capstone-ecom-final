@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { IoMdArrowForward } from 'react-icons/io';
-import { FiTrash2 } from 'react-icons/fi';
+import { IoMdArrowForward } from 'react-icons/io'
+import { FiTrash2 } from 'react-icons/fi'
 import CartItem from '../components/CartItem';
 import { SidebarContext } from '../contexts/SidebarContext';
 import { CartContext } from '../contexts/CartContext';
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
+  const {cart} = useContext(CartContext);
 
     return ( 
     <div className={`${ isOpen ? 'right-0' : '-right-full' } w-full bg-white fixed top-0
@@ -18,8 +19,14 @@ const Sidebar = () => {
     { /* icon */}
     <div onClick={handleClose} className='cursor-pointer w-8 h-8 flex jusify-center items-center'>
       <IoMdArrowForward className='text-2xl' />
-    </div>
-    </div>
+        </div>
+      </div>
+
+      <div>
+        {cart.map((item) => {
+        return <CartItem  item={item} key={item.id} />;
+      })}
+      </div>
     </div>
     );
 };
