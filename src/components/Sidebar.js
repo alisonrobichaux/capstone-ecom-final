@@ -4,10 +4,11 @@ import { IoMdArrowForward } from 'react-icons/io'
 import { FiTrash2 } from 'react-icons/fi'
 import CartItem from '../components/CartItem';
 import { SidebarContext } from '../contexts/SidebarContext';
+import { CartContext } from '../contexts/CartContext';
 
 const Sidebar = () => {
-
   const { isOpen, handleClose } = useContext(SidebarContext);
+  console.log(useContext(CartContext));
 
     return ( 
     <div className={`${ isOpen ? 'right-0' : '-right-full' } w-full bg-white fixed top-0
@@ -16,10 +17,7 @@ const Sidebar = () => {
       border-b'>
       <div className='uppercase text-sm font-semibold'>Shopping Bag (0)</div>
     { /* icon */}
-    <div 
-    onClick={handleClose}
-    className='cursor-pointer w-8 h-8 flex
-    jusify-center items-center'>
+    <div onClick={handleClose} className='cursor-pointer w-8 h-8 flex jusify-center items-center'>
       <IoMdArrowForward className='text-2xl' />
     </div>
     </div>
