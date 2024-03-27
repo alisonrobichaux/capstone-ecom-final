@@ -10,6 +10,14 @@ const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, clearCart, total, itemAmount } = useContext(CartContext);
 
+  const handleViewCartClick = () => {
+    handleClose(); // Close the sidebar when "View Cart" is clicked
+  };
+
+  const handleCheckoutClick = () => {
+    handleClose(); // Close the sidebar when "Checkout" is clicked
+  };
+
   return ( 
     <div className={`${isOpen ? 'right-0' : '-right-full'} w-full bg-white fixed top-0
       h-full shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 z-20 px-4 lg:px-[35px] overflow-y-auto`}>
@@ -39,16 +47,14 @@ const Sidebar = () => {
             <FiTrash2 />
           </div>
         </div>
-{/* View cart */}
-<Link to='/' className='bg-gray-200 p-4 justify-center text-primary w-full font-medium flex items-center justify-center'>
-  View cart
-</Link>
-
-{/* Checkout */}
-<Link to='/checkout' className='bg-primary p-4 justify-center text-white w-full font-medium flex items-center justify-center'>
-  Checkout
-</Link>
-
+        {/* View cart */}
+        <Link to='/view-cart' onClick={handleViewCartClick} className='bg-gray-200 p-4 justify-center text-primary w-full font-medium flex items-center justify-center'>
+          View cart
+        </Link>
+        {/* Checkout */}
+        <Link to='/checkout' onClick={handleCheckoutClick} className='bg-primary p-4 justify-center text-white w-full font-medium flex items-center justify-center'>
+          Checkout
+        </Link>
       </div>
     </div>
   );

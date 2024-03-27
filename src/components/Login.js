@@ -5,10 +5,13 @@ import { useAuth } from '../contexts/AuthContext';
 const Login = () => {
   const { login } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Perform login logic
-    login();
+    await login(); // Assuming login is an asynchronous function
+
+    // Redirect to the home page after successful login using Link component
+    window.location.href = '/'; // Redirect to the home page
   };
 
   return (
@@ -35,4 +38,3 @@ const Login = () => {
 };
 
 export default Login;
-

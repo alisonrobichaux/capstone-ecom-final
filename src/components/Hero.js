@@ -14,7 +14,7 @@ const Hero = () => {
           <h1 className='text-[100px] font-semibold leading-[1.1] font-light mb-4 winter-sale'>
             WINTER SALE <br />
           </h1>
-          <Link to={'/'} className='self-start uppercase font-semibold border-b-2 border-primary'>
+          <Link to={'/product-page'} className='self-start uppercase font-semibold border-b-2 border-primary'>
             Shop Now
           </Link>
         </div>
