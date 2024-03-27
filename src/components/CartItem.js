@@ -46,7 +46,7 @@ const CartItem = ({ item }) => {
 
           {/* Item Price */}
           <div className='flex-1 flex items-center justify-around'>
-            <div className='text-primary font-medium'>$ {price}</div>
+            <div className='text-gray-500'>$ {price}</div>
             {/* Final Price */}
             {/* make the price at 2 decimals */}
             <div className='flex-1 flex justify-end items-center text-primary font-medium'>
