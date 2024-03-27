@@ -8,16 +8,16 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const login = () => {
-    // Perform login logic
-    setIsLoggedIn(true); // Update isLoggedIn to true after successful login
+
+    setIsLoggedIn(true);
   };
 
   const logout = () => {
-    // Perform logout logic
-    setIsLoggedIn(false); // Update isLoggedIn to false after logout
+
+    setIsLoggedIn(false);
   };
+
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout }}>

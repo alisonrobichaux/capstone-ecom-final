@@ -16,7 +16,7 @@ const CheckoutPage = ({ handleClose }) => {
         billingAddress: '',
     });
 
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate(); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,14 +24,13 @@ const CheckoutPage = ({ handleClose }) => {
     };
 
     const handlePlaceOrder = () => {
-        // Process order here
+      
 
-        // Navigate to the order confirmation page
-        navigate('/order-confirmation'); // Navigate to the confirmation page
+        navigate('/order-confirmation'); 
     };
 
     const handleCloseSidebar = () => {
-        handleClose(); // Close the sidebar when called
+        handleClose(); 
     };
 
     return (

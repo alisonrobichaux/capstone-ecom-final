@@ -11,12 +11,13 @@ const Sidebar = () => {
   const { cart, clearCart, total, itemAmount } = useContext(CartContext);
 
   const handleViewCartClick = () => {
-    handleClose(); // Close the sidebar when "View Cart" is clicked
+    handleClose();
+  
   };
 
-  const handleCheckoutClick = () => {
-    handleClose(); // Close the sidebar when "Checkout" is clicked
-  };
+  
+
+
 
   return ( 
     <div className={`${isOpen ? 'right-0' : '-right-full'} w-full bg-white fixed top-0
@@ -52,7 +53,7 @@ const Sidebar = () => {
           View cart
         </Link>
         {/* Checkout */}
-        <Link to='/checkout' onClick={handleCheckoutClick} className='bg-primary p-4 justify-center text-white w-full font-medium flex items-center justify-center'>
+        <Link to='/checkout' className='bg-primary p-4 justify-center text-white w-full font-medium flex items-center justify-center'>
           Checkout
         </Link>
       </div>
