@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { IoMdClose, IoMdAdd, IoMdRemove } from 'react-icons/io';
 import { CartContext } from '../contexts/CartContext';
+import { SidebarContext } from '../contexts/SidebarContext';
 
 const ViewCartPage = () => {
     const { cart, addToCart, removeFromCart, increaseAmount, decreaseAmount } = useContext(CartContext);
@@ -18,11 +19,11 @@ const ViewCartPage = () => {
         decreaseAmount(id);
     };
 
-    // Calculate total price of all items in cart
+
     const total = cart.reduce((acc, item) => acc + (item.price * item.amount), 0);
 
     return (
-        <div className="container mx-auto mt-60 flex justify-center"> {/* Center the content */}
+        <div className="container mx-auto mt-60 mb-16 flex justify-center"> {/* Center the content and add bottom margin */}
             <div className="grid grid-cols-1 gap-4">
                 {cart.map((item) => (
                     <div key={item.id} className="bg-white shadow-md flex items-center justify-between p-4 mb-4 rounded-md">
@@ -41,7 +42,7 @@ const ViewCartPage = () => {
                     </div>
                 ))}
                 <div className="text-lg font-semibold mb-4">Total: ${total.toFixed(2)}</div> {/* Display total price */}
-                <div className="mt-8 pb-8"> {/* Add padding to the bottom */}
+                <div className="mt-12 pb-12"> {/* Add padding to the bottom */}
                     <Link to="/checkout" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Proceed to Checkout</Link>
                 </div>
             </div>
