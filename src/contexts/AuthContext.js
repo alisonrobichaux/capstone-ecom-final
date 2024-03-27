@@ -1,19 +1,22 @@
-// AuthContext.js
 import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
+
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = () => {
     // Perform login logic
-    setIsLoggedIn(true);
+    setIsLoggedIn(true); // Update isLoggedIn to true after successful login
   };
 
   const logout = () => {
     // Perform logout logic
-    setIsLoggedIn(false);
+    setIsLoggedIn(false); // Update isLoggedIn to false after logout
   };
 
   return (
@@ -22,5 +25,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-export const useAuth = () => useContext(AuthContext);

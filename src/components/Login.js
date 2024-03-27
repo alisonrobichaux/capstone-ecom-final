@@ -7,11 +7,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform login logic
-    await login(); // Assuming login is an asynchronous function
+    await login(); // Call login function from useAuth
 
-    // Redirect to the home page after successful login using Link component
-    window.location.href = '/'; // Redirect to the home page
+    // Redirect to the home page after successful login
+    window.location.href = '/'; // Use window.location.href to redirect
   };
 
   return (

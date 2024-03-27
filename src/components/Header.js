@@ -10,7 +10,15 @@ const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, login, logout } = useAuth();
+
+  const handleLoginLogout = () => {
+    if (isLoggedIn) { // Use isLoggedIn instead of loggedIn
+      logout();
+    } else {
+      login();
+    }
+  };
 
   // Event listener
   useEffect(() => {
@@ -44,7 +52,7 @@ const Header = () => {
         <div className="flex items-center">
           {/* Login Button */}
           {isLoggedIn ? (
-            <button onClick={logout} className="bg-red-500 text-white rounded-full px-4 py-2">
+            <button onClick={handleLoginLogout}>
               Logout
             </button>
           ) : (
