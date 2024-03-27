@@ -45,7 +45,7 @@ const Sidebar = () => {
 </Link>
 
 {/* Checkout */}
-<Link to='/' className='bg-primary p-4 justify-center text-white w-full font-medium flex items-center justify-center'>
+<Link to='/checkout' className='bg-primary p-4 justify-center text-white w-full font-medium flex items-center justify-center'>
   Checkout
 </Link>
 

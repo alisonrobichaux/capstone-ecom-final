@@ -4,11 +4,13 @@ import { CartContext } from '../contexts/CartContext';
 import { BsBag } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Logo from '../img/Logo.png';
+import { useAuth } from '../contexts/AuthContext';
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);
+  const { isLoggedIn, logout } = useAuth();
 
   // Event listener
   useEffect(() => {
@@ -38,20 +40,31 @@ const Header = () => {
           </div>
         </Link>
 
-        
+        {/* Navigation */}
+        <div className="flex items-center">
+          {/* Login Button */}
+          {isLoggedIn ? (
+            <button onClick={logout} className="bg-red-500 text-white rounded-full px-4 py-2">
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="bg-blue-500 text-white rounded-full px-4 py-2">
+              Login
+            </Link>
+          )}
 
-        {/* Cart */}
-        <div onClick={() => setIsOpen(!isOpen)} className='cursor-pointer flex relative'>
-          <div className='relative'>
-            <div className='bg-white opacity-100 w-[55px] h-[55px] rounded-full flex justify-center items-center'>
-              <BsBag className='text-3xl' />
-            </div>
-            <div className='bg-red-400 absolute -right-0 -bottom-0 text-[12px] w-[23px] h-[23px] text-white rounded-full flex justify-center items-center'>
-              {itemAmount}
+          {/* Cart */}
+          <div onClick={() => setIsOpen(!isOpen)} className='cursor-pointer flex relative'>
+            <div className='relative'>
+              <div className='w-[55px] h-[55px] rounded-full flex justify-center items-center'>
+                <BsBag className='text-3xl' />
+              </div>
+              <div className='bg-red-400 absolute -right-0 -bottom-0 text-[12px] w-[23px] h-[23px] text-white rounded-full flex justify-center items-center'>
+                {itemAmount}
+              </div>
             </div>
           </div>
         </div>
-        
       </div>
     </header>
   );
