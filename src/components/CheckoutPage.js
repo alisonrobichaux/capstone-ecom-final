@@ -1,21 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CheckoutPage = ({ handleClose }) => {
-    const [shoppingInfo, setShippingInfo] = useState({
-        name: '',
-        address: '',
-        email: '',
-        phone: '',
-    });
-
-    const [paymentInfo, setPaymentInfo] = useState({
-        cardNumber: '',
-        expirationDate: '',
-        cvv: '',
-        billingAddress: '',
-    });
-
+const CheckoutPage = () => {
     const navigate = useNavigate(); 
 
     const handleSubmit = (e) => {
@@ -24,13 +10,7 @@ const CheckoutPage = ({ handleClose }) => {
     };
 
     const handlePlaceOrder = () => {
-      
-
         navigate('/order-confirmation'); 
-    };
-
-    const handleCloseSidebar = () => {
-        handleClose(); 
     };
 
     return (
